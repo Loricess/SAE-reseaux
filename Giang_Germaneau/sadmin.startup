@@ -1,0 +1,10 @@
+ip address add 172.9.10.3/23 dev eth0
+ip route add default via 172.9.11.254
+
+cp /shared/resolv.conf /etc/resolv.conf
+apt update
+useradd -m admin
+echo "admin:admin" | chpasswd
+touch /home/admin/fichierAdmin
+chmod 777 /home/admin/fichierAdmin
+service ssh start

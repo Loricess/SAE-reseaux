@@ -1,0 +1,11 @@
+ip address add 172.9.10.1/23 dev eth0
+ip route add default via 172.9.11.254
+
+cp /shared/resolv.conf /etc/resolv.conf
+apt update
+apt upgrade -y
+apt install vsftpd -y
+cp /shared/vsftpd.conf /etc/vsftpd.conf
+useradd -m admin
+echo "admin:admin" | chpasswd
+service vsftpd start
